@@ -2,13 +2,15 @@ import gixy
 
 
 class Config(object):
-    def __init__(self,
-                 plugins=None,
-                 skips=None,
-                 severity=gixy.severity.UNSPECIFIED,
-                 output_format=None,
-                 output_file=None,
-                 allow_includes=True):
+    def __init__(
+        self,
+        plugins=None,
+        skips=None,
+        severity=gixy.severity.UNSPECIFIED,
+        output_format=None,
+        output_file=None,
+        allow_includes=True,
+    ):
         self.severity = severity
         self.output_format = output_format
         self.output_file = output_file

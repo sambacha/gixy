@@ -6,7 +6,7 @@ from gixy.core.context import get_context
 
 LOG = logging.getLogger(__name__)
 # See ngx_http_script_compile in http/ngx_http_script.c
-EXTRACT_RE = re.compile(r'\$([1-9]|[a-z_][a-z0-9_]*|\{[a-z0-9_]+\})', re.IGNORECASE)
+EXTRACT_RE = re.compile(r"\$([1-9]|[a-z_][a-z0-9_]*|\{[a-z0-9_]+\})", re.IGNORECASE)
 
 
 def compile_script(script):
@@ -24,7 +24,7 @@ def compile_script(script):
     for i, var in enumerate(EXTRACT_RE.split(str(script))):
         if i % 2:
             # Variable
-            var = var.strip('{}\x20')
+            var = var.strip("{}\x20")
             var = context.get_var(var)
             if var:
                 depends.append(var)
@@ -35,7 +35,9 @@ def compile_script(script):
 
 
 class Variable(object):
-    def __init__(self, name, value=None, boundary=None, provider=None, have_script=True):
+    def __init__(
+        self, name, value=None, boundary=None, provider=None, have_script=True
+    ):
         """
         Gixy Nginx variable class - parse and provide helpers to work with it.
 

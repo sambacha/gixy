@@ -32,7 +32,7 @@ class LogHandler(BufferingHandler):
 
 class Matcher(object):
 
-    _partial_matches = ('msg', 'message')
+    _partial_matches = ("msg", "message")
 
     def matches(self, d, **kwargs):
         """
@@ -58,7 +58,7 @@ class Matcher(object):
         if type(v) != type(dv):
             result = False
         elif type(dv) is not str or k not in self._partial_matches:
-            result = (v == dv)
+            result = v == dv
         else:
             result = dv.find(v) >= 0
         return result
